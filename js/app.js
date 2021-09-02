@@ -45,8 +45,9 @@ const displayBook = data => {
         div.innerHTML = `
         <img src="${imgUrl}" alt="">
         <h3>${book?.title}</h3> 
-        <p>By <span>${book?.author_name[0]}</span></p>
-        <p>Publish Date: ${book.first_publish_year ? book.first_publish_year: "Date not found"}</p>
+        <p>By <span><b>${book?.author_name?.[0] ? book?.author_name?.[0]: "Unknown Author"}</b></span></p>
+        <p>Publisher: <span>${book?.publisher?.[0] ? book?.publisher?.[0]: "Unknown Publisher"}</span></p>
+        <p>Publish Date: ${book?.publish_date?.[0] ? book.publish_date?.[0]: "Date not found"}</p>
         `;
         container.appendChild(div);
         document.getElementById('resultCount').innerHTML =`Total <b>${i++}</b> result found`
