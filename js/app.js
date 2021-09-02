@@ -6,18 +6,19 @@ document.getElementById('search-btn').addEventListener('click', () =>{
     .then(res => res.json())
     .then(data => displayBook(data));
     document.getElementById('search-text').value = '';
-    toggleElemnents('none', 'block')
+    toggleElemnents('none', 'block', 'none')
 });
 
 // Toggle Elements Function 
-const toggleElemnents = (container, loading) =>{
+const toggleElemnents = (container, loading, count) =>{
     document.getElementById('container').style.display = container;
     document.getElementById('loading').style.display = loading;
+    document.getElementById('resultCount').style.display = count;
 }
 
 // Display Data Function
 const displayBook = data => {
-    toggleElemnents('grid', 'none')
+    toggleElemnents('grid', 'none', 'block')
     const results = data.docs
     let i = 1;
 
